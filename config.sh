@@ -21,26 +21,31 @@ len=${#repoList[*]}
 # Check whether the file exists or not.
 for idx in $( seq 0 $(( ${len}-1 )) )
 do
+    # Print the configuration file name
+    printf "\n\e[1;36m"
+    printf "${repoList[${idx}]}"
+    printf "\n\e[0m"
     if [ -f ${locList[${idx}]} ]; then
         # If it exists, print the content of the files.
-        echo ""
-        echo "The content in your computer:"
-        echo ""
-        echo "********************"
+        printf "\nThe content in your computer:\n"
+        printf "********************\n"
+        printf "\e[5;33m"
         cat  ${locList[${idx}]}
-        echo "********************"
-        echo ""
-        echo "The content in the repository:"
-        echo ""
-        echo "********************"
+        printf "\e[0m"
+        printf "********************\n"
+        printf ""
+        printf "\nThe content in the repository:\n"
+        printf "********************\n"
+        printf "\e[5;32m"
         cat  ${repoList[${idx}]}
-        echo "********************"
-        echo ""
+        printf "\e[0m"
+        printf "********************\n"
+        printf ""
         # Ask the user to replace it or not.
         read -p "Replace the file in your computer or not (y/n): " decision
         while [ ${decision} != 'y' ] && [ ${decision} != 'n' ]
         do
-            echo    "Please enter y or n"
+            printf  "Please enter y or n"
             read -p "Replace the file in your computer or not (y/n): " decision
         done
         # Do the things according to the answer of the user
