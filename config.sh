@@ -7,10 +7,10 @@ set -e
 home=~
 # File in repository
 fishFile=config.fish
-vimFile=vimrc
+vimFile=.vimrc
 # File in local computer
 fishLocFile=${home}/.config/fish/${fishFile}
-vimLocFile=${home}/.${vimFile}
+vimLocFile=${home}/${vimFile}
 # File array
 repoList=(${fishFile} ${vimFile})
 locList=(${fishLocFile} ${vimLocFile})
