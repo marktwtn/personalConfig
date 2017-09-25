@@ -11,3 +11,6 @@ syntax on
 
 " Search setting
 set hlsearch
+
+" Make backspace work correctly
+set backspace=indent,eol,start
