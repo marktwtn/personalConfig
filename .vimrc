@@ -5,7 +5,7 @@ set nu
 set shiftwidth=2
 
 " Set color style
-colorscheme desert
+colorscheme torte
 set t_Co=256
 syntax on
 
