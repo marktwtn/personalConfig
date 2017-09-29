@@ -8,12 +8,14 @@ home=~
 # File in repository
 fishFile=config.fish
 vimFile=.vimrc
+tmuxFile=.tmux.conf
 # File in local computer
 fishLocFile=${home}/.config/fish/${fishFile}
 vimLocFile=${home}/${vimFile}
+tmuxLocFile=${home}/${tmuxFile}
 # File array
-repoList=(${fishFile} ${vimFile})
-locList=(${fishLocFile} ${vimLocFile})
+repoList=(${fishFile} ${vimFile} ${tmuxFile})
+locList=(${fishLocFile} ${vimLocFile} ${tmuxLocFile})
 # Array length
 len=${#repoList[*]}
 
