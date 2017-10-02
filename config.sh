@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -e
-
 # Variables
 # home directory
 home=~
@@ -28,7 +26,7 @@ do
     printf "${repoList[${idx}]}"
     printf "\n\e[0m"
     # Check the files are the same or not
-    diff ${locList[${idx}]} ${repoList[${idx}]}
+    diff ${locList[${idx}]} ${repoList[${idx}]} > /dev/null
     compare=$?
     if [ -f ${locList[${idx}]} ] && [ "${compare}" != "0" ]; then
         # If it exists, print the content of the files.
