@@ -27,7 +27,10 @@ do
     printf "\n\e[1;36m"
     printf "${repoList[${idx}]}"
     printf "\n\e[0m"
-    if [ -f ${locList[${idx}]} ]; then
+    # Check the files are the same or not
+    diff ${locList[${idx}]} ${repoList[${idx}]}
+    compare=$?
+    if [ -f ${locList[${idx}]} ] && [ "${compare}" != "0" ]; then
         # If it exists, print the content of the files.
         printf "\nThe content in your computer:\n"
         printf "********************\n"
@@ -54,6 +57,8 @@ do
         if [ ${decision} == 'y' ]; then
             cp ${repoList[${idx}]} ${locList[${idx}]}
         fi
+    elif [ "${compare}" == "0" ]; then
+        printf "The files have no difference.\n"
     else
         # If it does not exist, copy the file.
         cp ${repoList[${idx}]} ${locList[${idx}]}
