@@ -56,7 +56,11 @@ do
             cp ${repoList[${idx}]} ${locList[${idx}]}
         fi
     elif [ "${compare}" == "0" ]; then
-        printf "The files have no difference.\n"
+        printf "\nThe files of "
+        printf "\e[1;36m"
+        printf "${repoList[${idx}]}"
+        printf "\e[0m"
+        printf " have no difference.\n"
     else
         # If it does not exist, copy the file.
         cp ${repoList[${idx}]} ${locList[${idx}]}
