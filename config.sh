@@ -29,32 +29,13 @@ do
     diff ${locList[${idx}]} ${repoList[${idx}]} > /dev/null
     compare=$?
     if [ -f ${locList[${idx}]} ] && [ "${compare}" != "0" ]; then
-        # If it exists, print the content of the files.
-        printf "\nThe content in your computer:\n"
-        printf "********************\n"
-        printf "\e[5;33m"
-        cat  ${locList[${idx}]}
+        # If it exists, use 'vimdiff' to allow the user to change the files manually.
+        vimdiff ${repoList[${idx}]} ${locList[${idx}]}
+        printf "\nThe files of "
+        printf "\e[1;36m"
+        printf "${repoList[${idx}]}"
         printf "\e[0m"
-        printf "********************\n"
-        printf ""
-        printf "\nThe content in the repository:\n"
-        printf "********************\n"
-        printf "\e[5;32m"
-        cat  ${repoList[${idx}]}
-        printf "\e[0m"
-        printf "********************\n"
-        printf ""
-        # Ask the user to replace it or not.
-        read -p "Replace the file in your computer or not (y/n): " decision
-        while [ ${decision} != 'y' ] && [ ${decision} != 'n' ]
-        do
-            printf  "Please enter y or n"
-            read -p "Replace the file in your computer or not (y/n): " decision
-        done
-        # Do the things according to the answer of the user
-        if [ ${decision} == 'y' ]; then
-            cp ${repoList[${idx}]} ${locList[${idx}]}
-        fi
+        printf " have difference.\n"
     elif [ "${compare}" == "0" ]; then
         printf "\nThe files of "
         printf "\e[1;36m"
@@ -65,4 +46,5 @@ do
         # If it does not exist, copy the file.
         cp ${repoList[${idx}]} ${locList[${idx}]}
     fi
+    printf "${repoList[${idx}]} - done\n"
 done
