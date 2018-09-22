@@ -7,13 +7,15 @@ home=~
 fishFile=config.fish
 vimFile=.vimrc
 tmuxFile=.tmux.conf
+gitFile=.gitconfig
 # File in local computer
 fishLocFile=${home}/.config/fish/${fishFile}
 vimLocFile=${home}/${vimFile}
 tmuxLocFile=${home}/${tmuxFile}
+gitLocFile=${home}/${gitFile}
 # File array
-repoList=(${fishFile} ${vimFile} ${tmuxFile})
-locList=(${fishLocFile} ${vimLocFile} ${tmuxLocFile})
+repoList=(${fishFile} ${vimFile} ${tmuxFile} ${gitFile})
+locList=(${fishLocFile} ${vimLocFile} ${tmuxLocFile} ${gitLocFile})
 # Array length
 len=${#repoList[*]}
 
