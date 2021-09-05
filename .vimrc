@@ -14,3 +14,6 @@ set hlsearch
 
 " Make backspace work correctly
 set backspace=indent,eol,start
+
+" Set cursor line
+set cursorline
