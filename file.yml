@@ -1,0 +1,12 @@
+fish:
+  name: "config.fish"
+  localPath: ".config/fish"
+git:
+  name: ".gitconfig"
+  localPath: ""
+tmux:
+  name: ".tmux.conf"
+  localPath: ""
+vim:
+  name: ".vimrc"
+  localPath: ""
